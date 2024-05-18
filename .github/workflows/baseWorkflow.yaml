@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is testing
 on:
   push:
     branches:
-    - main
+      - main
 jobs:
   test-job:
     runs-on: ubuntu-latest
@@ -12,5 +12,3 @@ jobs:
       - name: Named step
         run: echo "Named step"
       - run: echo ${{ job.status }}
-
-  
