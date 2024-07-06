@@ -1,6 +1,8 @@
 name: Playwright
 run-name: Testing on branch ${{ github.head_ref }}
 on:
+  schedule:
+    - cron: '20 9 * 7 6'
   pull_request:
   workflow_dispatch:
     inputs:
@@ -19,11 +21,11 @@ on:
         type: "boolean"
       browser:
         description: Choose a browser
-        type: 'choice'
+        type: "choice"
         options:
-        - 'chromium'
-        - 'firefox'
-        - 'webkit'
+          - "chromium"
+          - "firefox"
+          - "webkit"
 
 jobs:
   playwright:
@@ -57,5 +59,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: playwright-report
-      
-        
